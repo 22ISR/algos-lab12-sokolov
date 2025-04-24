@@ -1,28 +1,95 @@
 from tkinter import *
 from tkinter import ttk
+from random import *
+
 root = Tk()
-root.title("Генератор пороля")
-root.geometry("800x500")
-position = {"padx":6, "pady":6, "anchor":NW}
- 
-spinbox = ttk.Spinbox(from_=1.0, to=100.0) # выбор длины пороля
-spinbox.pack(anchor=NW)
-print(spinbox)
+root.title("Генератор паролей")
+root.geometry("300x250")
 
-numbers_var_enabled = IntVar()
-special_var_enabled = IntVar()
-spaces_var_enabled = IntVar()
-  
-numbers_var = ttk.Checkbutton(text="numbers_var", variable=numbers_var_enabled)
-numbers_var.pack(padx=6, pady=6, anchor=NW)
+# Массив с буквами
+all_letters = [
+    # Латинские буквы (строчные)
+    'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+    'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    
+    # Латинские буквы (заглавные)
+    'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+    'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',]
 
-special_var = ttk.Checkbutton(text="special_var", variable=special_var_enabled)
-special_var.pack(padx=6, pady=6, anchor=NW)
+ # Массив с Цифрами
+all_number = [
+    # Цифры
+    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',]
+# Массив с спецсимволами
+all_symbols = [
+    # Специальные символы (основные)
+    '!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/',
+    ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~',
+]
 
-spaces_var = ttk.Checkbutton(text="spaces_var", variable=spaces_var_enabled)
-spaces_var.pack(padx=6, pady=6, anchor=NW)
+# Массив с пробелом
+all_spase = [
+    # Пробел
+    ' '
+]
 
-# enabled_label = ttk.Label(textvariable=spaces_var_enabled) достать значения из пукчекбаттон
-# enabled_label.pack(padx=6, pady=6, anchor=NW)
+
+# ФУНКЦИОНАЛ
+
+# Функционал "Количество цифр в пароле"
+
+def number_in_password():
+    print("Hello")
+
+# Функционал "Добавить цифры"
+
+def number_in_password():
+    value = number.get()
+    number.set(value + all_number)
+
+
+
+
+
+
+
+# ИНТЕРФЕЙС 
+
+# Количество цифр в пароле 
+Spinbox = ttk.Spinbox(from_=1.0, to=100.0)
+Spinbox.pack(anchor=N)
+
+# Добавить цифры
+number = IntVar() 
+
+number_checkbutton = ttk.Checkbutton(text="Включить цифры", variable=number)
+number_checkbutton.pack(padx=6, pady=6, anchor=NW)
+
+# Добавить спецсимволы
+symbol = IntVar() 
+
+symbol_checkbutton = ttk.Checkbutton(text="Включить спецсимволы", variable=symbol)
+symbol_checkbutton.pack(padx=6, pady=6, anchor=NW)
+
+# Добавить пробелы
+space = IntVar() 
+
+space_checkbutton = ttk.Checkbutton(text="Включать пробелы", variable=space)
+space_checkbutton.pack(padx=6, pady=6, anchor=NW)
+
+#Кнопка генерации
+generation = ttk.Button(text="Сгенерировать")
+generation.pack()
+
+#Поле вывода пароля
+field = ttk.Entry()
+field.pack(padx=8, pady=8)
+
+
+
+
+
+
+
 
 root.mainloop()
